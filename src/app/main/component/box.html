@@ -1,0 +1,7 @@
+<div class="box {{:: vm.boxClass}}">
+    <div class="box-header with-border">
+        <h3 class="box-title">{{vm.boxTitle || '没有标题'}}</h3>
+    </div>
+    {{vm.demo}}
+    <div class="box-body" ng-transclude></div>
+</div>

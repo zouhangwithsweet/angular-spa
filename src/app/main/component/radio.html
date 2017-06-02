@@ -1,0 +1,7 @@
+<ul>
+    <li ng-repeat="item in vm.option" ng-click="vm.onChange({selected: item}); vm.model = item.id">
+        <i class="fa"
+           ng-class="{'fa-check-circle': vm.model === item.id, 'fa-circle-o': vm.model !== item.id}"></i>
+        {{::item.name}}
+    </li>
+</ul>

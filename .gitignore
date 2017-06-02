@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+
+.idea/
+bower_components
+node_modules
+
+build/js/vendors.js
+build/js/app.js
+build/js/base.js
+build/js/vendors.min.js
+build/css/combine.css
+dev
+npm-debug.log
+rev
+*.map
+*.rb

@@ -1,0 +1,66 @@
+<!-- <div style="background: #fff"><h2>欢迎登录</h2> {{vm.name}}</div>
+<div>
+    <input type="text" ng-model="vm.phone" placeholder="手机号">
+    <input type="text" ng-model="vm.verify_code" placeholder="验证码">
+    <button ng-click="vm.loginFn()">登录</button>
+</div>
+<div>
+    <input type="text" ng-model="vm.code" placeholder="验证码">
+    <button ng-click="vm.getCode()">获取验证码</button>
+</div>
+<img ng-src="{{ '/v2/app/login/captcha?' + vm.timestamp}}" ng-click="vm.changeImg()"> -->
+
+
+
+
+
+<div class="login-box">
+  <div class="login-logo">
+    <b style="color:rgba(250,250,250,.8);">Hello</b>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body" style="background: rgba(255,255,255,.2);">
+    <p class="login-box-msg" style="color:rgba(250,250,250,.8);">what why how</p>
+
+    <form method="post">
+      <div class="form-group has-feedback">
+        <input type="text" ng-model="vm.phone" placeholder="手机号" maxlength='11' ng-change="vm.testPhone()">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" ng-model="vm.verify_code" placeholder="验证码" maxlength='6'>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+      	<div class="col-xs-6">
+          <button class="btn btn-primary btn-block btn-flat" data-toggle="modal" data-target="#myModal" ng-disabled="vm.pState || vm.state"  ng-bind="vm.text"></button>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+          <button type="submit" class="btn btn-primary btn-block btn-flat" ng-click="vm.loginFn()">登录</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">图片验证码</h4>
+            </div>
+            <div class="modal-body">
+				<img ng-src="{{ 'http://wave.xiaojukeji.com/v2/app/login/captcha?' + vm.timestamp}}" ng-click="vm.changeImg()">
+				<input type="text" ng-model="vm.code" maxlength='4' placeholder="验证码">
+        {{vm.code}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.getCode();vm.sendMessage()">获取验证码</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

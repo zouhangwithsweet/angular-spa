@@ -1,0 +1,26 @@
+<style>
+    .helloData .chart {
+        height: 500px;
+    }
+</style>
+<div class="helloData">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Area Chart</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" ng-click="vm.change()"><i class="fa fa-minus"></i>改变</button>
+            </div>
+        </div>
+        <div class="box-body">
+            <shixun-chart data-option="vm.option"></shixun-chart>
+        </div>
+    </div>
+
+    <shixun-box box-title="测试" box-class="box-info">
+        <shixun-chart data-option="vm.option"></shixun-chart>
+    </shixun-box>
+
+    <shixun-box box-title="测试" box-class="box-info">
+        <hello-demo></hello-demo>
+    </shixun-box>
+</div>

@@ -1,0 +1,4 @@
+<select class="form-control" ng-model="vm.model" ng-change="vm.onChange({selected: vm.model})">
+    <option value="">请选择</option>
+    <option ng-repeat="item in vm.option" value="{{item.id}}">{{:: item.name}}</option>
+</select>

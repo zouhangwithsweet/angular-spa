@@ -1,0 +1,14 @@
+<section class="sidebar">
+    <ul class="sidebar-menu">
+        <li ng-repeat="item in vm.siderMenus" ng-class="{'treeview': item.nodes.length !== 0}">
+            <a>
+                <i class="fa fa-th"></i> <span>{{item.sidebar_name}}</span>
+            </a>
+            <ul class="treeview-menu" ng-if="item.nodes.length !== 0">
+                <li ng-repeat="node in item.nodes">
+                    <a><i class="fa fa-circle-o"></i>{{node.sidebar_name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>

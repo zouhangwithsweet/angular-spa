@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "gulp dev"
   },
-  "author": "lilei",
+  "author": "zouhang",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.6.3",

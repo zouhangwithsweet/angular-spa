@@ -1,65 +1,66 @@
-/**
- * Created by zou hang on 2017/5/6.
- */
-
 export default {
-    template: require('./app.html'),
+    template: require('./login.html'),
     controllerAs: 'vm',
-    controller($_ajax,$interval) {
+    controller($_ajax,$uibModal,$interval){
         'ngInject';
-        this.phone = '';
-         this.pState = true;
-        this.testPhone = () =>{
-            if(/^1[34578]\d{9}$/.test(this.phone)){
-                this.pState = false;
+        let that = this;
+        let timer = null;
+        that.phone = '13051248978';
+        that.pState = true;
+        that.text = "获取验证码";
+
+        that.count = 60;
+        that.isDisabled = false;
+        that.testPhone = () =>{
+            if(/^1[34578]\d{9}$/.test(that.phone)){
+                that.pState = false;
             }
             else{
-                this.pState = true;
+                that.pState = true;
             }
         }
-        
-        this.code = '';
-
-        this.timestamp = new Date();
-
-        this.changeImg = () => {
-            this.timestamp = new Date();
-        }
-
-        this.getCode = () => {
-            $_ajax.get('app/login/verifycode', {phone: this.phone, code: this.code}).then(() => {
-            }, () => {
-                alert('错误');
-                this.timestamp = new Date();
-            });
-        }
-
-        this.loginFn = () => {
-            $_ajax.get('app/login/login', {phone: this.phone, verify_code: this.verify_code}).then(() => {
-            }, () => {
-                alert('错误');
-            });
-        }
-        this.text = "获取验证码";
-        this.state = false;
-
-        this.sendMessage = () =>{
-            this.state = true;
-            var second = 60,
-            timePromise = $interval(()=>{
-                this.state = true;
-                if(second <= 0){
-                    $interval.cancel(timePromise);
-                    second = 60;
-                }else{
-                    second--;
-                   this.text = second + "秒后可重发";
-                    if(second == 0){
-                        this.text = "重发验证码";
-                        this.state = false;
+       /* that.code = '';
+        that.verify_code = '';
+        that.timer = new Date();
+        that.changetimer = () => {
+            that.timer = new Date();
+        };*/
+        that.getCode = () => {
+            if( that.pState ){
+                return;
+            };
+            $uibModal.open({
+                component: 'loginModal',
+                resolve:{
+                    data () {
+                        return {
+                            phone: that.phone
+                        };
                     }
                 }
-            },1000,60);
+            }).result.then(()=>{
+                timer = $interval(()=>{
+                    that.count--;
+                    that.isDisabled = true;
+                    that.text = `${that.count}秒后获取`;
+                    if (that.count == 0){
+                        $interval.cancel(timer);
+                        that.isDisabled = false;
+                        that.count = 60;
+                        that.text = "获取验证码";
+                        timer = null;
+                    }
+                },1000)
+            })
         }
+        that.loginIn = () => {
+            $_ajax.get('app/login/login', {phone: that.phone, verify_code: that.verify_code}).then(() => {
+                alert('登录成功！');
+                location.href = '/#/app/index';
+            }, () => {
+                console.log('错误');
+            });
+        }
+
     }
 }

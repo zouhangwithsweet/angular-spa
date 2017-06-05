@@ -12,6 +12,7 @@ export default ($stateProvider, $urlRouterProvider) => {
     //根路由app应用
     $stateProvider
         .state(...require('./index'))
+        .state(...require('./cart/router'))
         .state(...require('./hello/router'))
         .state(...require('./app_manage/role/router'))
 };

@@ -1,5 +1,5 @@
 export default {
-    template: require('./login.html'),
+    template: require('./app.html'),
     controllerAs: 'vm',
     controller($_ajax,$uibModal,$interval){
         'ngInject';

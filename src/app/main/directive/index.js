@@ -1,12 +1,8 @@
-/**
- * Created by zou hang on 2017/3/25.
- */
 
-import ngEnter from './ng.enter';
-import shixunPagination from './shixun.pagination';
 import chart from './chart';
-
+import hchart from './hchart';
+import sxPagination from './pagination';
 export default angular.module('main.directive.module', [])
-    .directive('shixunPagination', shixunPagination)
     .directive('shixunChart', chart)
-    .directive('ngEnter', ngEnter);
+    .directive('sxPagination', sxPagination)
+    .directive('shixunHchart',hchart);

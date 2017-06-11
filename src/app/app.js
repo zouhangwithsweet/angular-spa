@@ -1,45 +1,67 @@
 /**
- * Created by zou hang on 2017/3/6.
+ * Created by Rayr Lee on 2017/3/6.
  */
-//样式文件
+
+
+//引入css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'static/css/AdminLTE.min.css';
 import 'static/css/skin-black.css';
 import 'static/css/reset-bootstrap.css';
 import 'static/css/app.css';
-//js基础库
+import './sass/index.scss';
+
+//引入依赖
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import uibs from 'angular-ui-bootstrap';
-import 'oclazyload';  //懒加载
 
-//业务逻辑
 import mainRouter from './pages/router';
 import MainModuleCtrl from './main/controller';
-import MainModuleService from './main/service';
-import MainModuleDirective from './main/directive';
+import oclazyload from 'oclazyload';
 import MainModuleComponent from './main/component';
+import MainModuleDirective from './main/directive';
+/*import mainctrl from './main/mian.controller.module.js';*/
 
-import MainInterceptors from './main/interceptors';
-
-let mainApp = angular.module('shixun-app', [
+//主要逻辑
+import MainModuleService from './main/service';
+let mainApp =angular.module('shixun-app', [
     uiRouter,
     uibs,
     'oc.lazyLoad',
     MainModuleCtrl.name,
+    /*mainctrl.name,*/
     MainModuleService.name,
     MainModuleDirective.name,
-    MainModuleComponent.name
+    MainModuleComponent.name,
 ]);
 
-mainApp.config(($locationProvider) => {
-    'ngInject';
-    $locationProvider.hashPrefix('');
-});
 
 mainApp.config(mainRouter);
 
-mainApp.config(MainInterceptors);
+mainApp.config(($httpProvider) => {
+    'ngInject';
+    $httpProvider.interceptors.push(['$q', '$window', function ($q, $window) {
+        return {
+            responseError: function (response) {
+                var deferred = $q.defer();
 
+                switch (response.status) {
+                    case 401:
+                        deferred.reject(response);
+                        break;
+                    case 451:
+                        deferred.reject(response);
+                        break;
+                    default:
+                        deferred.resolve(response);
+                }
+
+                return deferred.promise;
+            }
+        };
+    }]);
+});
+//angular手动加载
 angular.bootstrap(document, ['shixun-app']);

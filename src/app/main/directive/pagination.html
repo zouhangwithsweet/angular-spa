@@ -1,0 +1,12 @@
+<div class="sx-pagination-box">
+    <ul uib-pagination class="pagination-sm"
+        total-items="vm.page.totalItems" ng-model="vm.page.currentPage"
+        ng-change="vm.pageChanged()" max-size="5" boundary-links="true" currentPage="1"
+        previous-text="<"
+        next-text=">"
+        first-text="首页"
+        last-text="末页"
+        items-per-page="vm.page.everyPage"
+    ></ul>
+    <span class="total-page">共{{getPaginationFn(vm.page.totalItems, vm.page.everyPage)}}页</span>
+</div>

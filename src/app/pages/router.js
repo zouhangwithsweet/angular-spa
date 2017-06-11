@@ -14,6 +14,7 @@ export default ($stateProvider, $urlRouterProvider) => {
     $stateProvider.state(...require('./app'));
     $stateProvider
         .state(...require('./index'))
+        .state(...require('./cart/router'))
         .state(...require('./hello/router'))
         .state(...require('./car/router'))
         .state(...require('./app-manage/role/router'));

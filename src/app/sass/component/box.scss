@@ -1,0 +1,64 @@
+/**
+ * Created by Rayr Lee on 2017/6/10.
+ */
+
+.sx-box {
+    @include sx-border();
+    margin-bottom: 15px;
+    background: #fff;
+}
+
+.sx-box-header {
+    display: flex;
+    padding: 0 30px;
+    height: 59px;
+    line-height: 60px;
+    border-bottom: 1px solid $border-color;
+    .title {
+        flex: 1;
+        font-size: 16px;
+        width: 0;
+    }
+}
+
+.sx-box-body {
+    padding: 22px 30px;
+}
+
+.sx-box-filter {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 22px 30px;
+    .filter-item {
+        flex: 0 0 25%;
+        width: 0;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        input {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            outline: none;
+        }
+        &:nth-child(4n) {
+            padding-right: 0;
+        }
+    }
+    .filter-item-btngroup {
+        display: flex;
+        margin-left: auto;
+        padding-right: 0;
+        .sx-btn {
+            flex: 1;
+            width: 0;
+            margin-right: 15px;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.sx-box-footer {
+
+}

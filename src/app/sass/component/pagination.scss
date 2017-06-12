@@ -1,0 +1,42 @@
+.sx-pagination-box {
+    margin-top: 15px;
+    .total-page {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        color: #a1a1a1;
+    }
+}
+
+.pagination {
+    margin: 0 0 10px 0;
+    vertical-align: top;
+    li a {
+        height: 30px;
+        margin-left: 5px;
+    }
+    li:first-child > a,
+    li:first-child > span {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    li:last-child > a,
+    li:last-child > span {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+}
+
+.pagination > li > a {
+    background: #fff;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background: $theme-color;
+    border-color: $theme-color;
+}

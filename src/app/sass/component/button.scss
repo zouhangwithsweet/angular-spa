@@ -1,0 +1,26 @@
+/**
+ * Created by Rayr Lee on 2017/6/10.
+ */
+
+.sx-btn {
+    display: inline-block;
+    height: 40px;
+    line-height: 38px;
+    background: $theme-color;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.sx-btn-white {
+    @include sx-border($theme-color);
+    background: rgba(79, 176, 83, 0.06);
+    color: $theme-color;
+}
+
+.sx-btn-sm {
+    padding: 0 12px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}

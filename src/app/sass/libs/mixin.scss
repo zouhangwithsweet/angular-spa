@@ -1,0 +1,7 @@
+/**
+ * Created by Rayr Lee on 2017/6/10.
+ */
+
+@mixin sx-border($color: $border-color) {
+    border: 1px solid $color;
+}

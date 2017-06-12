@@ -1,0 +1,17 @@
+/**
+ * Created by Rayr Lee on 2017/6/10.
+ */
+
+.sx-skin {
+    input {
+        @include sx-border();
+        padding: 0 14px;
+        transition: all .2s;
+        &:focus {
+            @include sx-border($theme-color);
+        }
+        &::-webkit-input-placeholder {
+            color: #a1a1a1;
+        }
+    }
+}

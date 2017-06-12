@@ -3,13 +3,13 @@
         <b class="title">订单管理</b>
     </div>
     <div class="sx-box-filter">
-        <div class="filter-item"><input placeholder="司机姓名" type="text"></div>
-        <div class="filter-item"><input placeholder="司机手机号" type="text"></div>
-        <div class="filter-item"><input placeholder="请输入车型" type="text"></div>
-        <div class="filter-item"><input placeholder="订单编号" type="text"></div>
+        <div class="filter-item"><input placeholder="司机姓名" ng-model="vm.name"></div>
+        <div class="filter-item"><input placeholder="司机手机号" ng-model="vm.phone"></div>
+        <div class="filter-item"><input placeholder="请输入车型"></div>
+        <div class="filter-item"><input placeholder="订单编号"></div>
         <div class="filter-item filter-item-btngroup">
-            <button class="sx-btn">查询 <i class="fa fa-search"></i></button>
-            <button class="sx-btn sx-btn-white">重置 <i class="fa fa-refresh"></i></button>
+            <button class="sx-btn" ng-click="vm.handle.query()">查询 <i class="fa fa-search"></i></button>
+            <button class="sx-btn sx-btn-white" ng-click="vm.handle.rest()">重置 <i class="fa fa-refresh"></i></button>
         </div>
     </div>
 

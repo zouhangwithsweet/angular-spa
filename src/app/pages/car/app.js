@@ -33,11 +33,13 @@ function Ctrl($_ajax) {
     that.handle = {
         query() {
             that.param.name = that.name || "";
-            that.phone = that.phone || "";
+            that.param.phone = that.phone || "";
+            that.initList();
         },
         rest() {
             that.param.name = "";
             that.phone = "";
+            that.initList();
         }
     }
 

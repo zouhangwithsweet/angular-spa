@@ -36,7 +36,7 @@
     "babel-preset-stage-3": "^6.22.0",
     "connect-gzip": "^0.1.6",
     "css-loader": "^0.26.4",
-    "eslint": "^3.19.0",
+    "eslint": "^4.19.1",
     "eslint-loader": "^1.7.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
